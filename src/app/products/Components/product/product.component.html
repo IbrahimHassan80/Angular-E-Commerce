@@ -1,0 +1,13 @@
+<div class="item">
+    <img style="height:300px;" class="card-img-top" src="{{data.image}}" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">{{data.title}}</h5>
+      <p class="card-text">{{data.description}}</p>
+      <p><span style="font-weight: bold;">price : </span>{{data.price}}</p>
+      <button *ngIf="!addButton" (click)="addButton = true" class="btn btn-primary">Add to cart</button>
+      <div *ngIf="addButton">
+         <input class="form-control" type="text" [(ngModel)]="amount">
+         <button (click)="add(); addButton = false">Add</button>
+      </div>
+    </div>
+</div>

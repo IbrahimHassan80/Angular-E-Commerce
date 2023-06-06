@@ -1,0 +1,16 @@
+<div class="box mt-5">
+    <div class="my-2 w-25">
+        <app-select [data] ="Categories" [title] = "'Categories'" (selectedValue)="filterCategory($event)"></app-select>
+    </div>
+</div>
+
+<div class="row" *ngIf="!loading">
+    <div class="card" style="width: 18rem;" *ngFor="let item of products">
+    <app-product [data]="item" (item)="addToCart($event)"></app-product>
+    <button routerLink="/details/{{item.id}}" class="btn btn-primary">Show Details</button>
+  </div>
+</div> 
+
+<div class="text-center w-100" *ngIf="loading">
+  <app-spinner></app-spinner>
+</div>
